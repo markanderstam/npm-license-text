@@ -1,6 +1,6 @@
 {
   "name": "npm-license-text",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate file with license text of all dependencies",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/got": "^7.1.6",
+    "@types/mz": "0.0.32",
     "@types/node": "^9.3.0",
     "prettier": "^1.10.2",
     "tslint": "^5.9.1",
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "got": "^8.0.2",
+    "mz": "^2.7.0",
     "npm-license-crawler": "^0.1.5",
     "thenify": "^3.3.0"
   }

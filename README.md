@@ -13,7 +13,10 @@ the generated license file for correctness manually.
 
 ## Usage
 
-    npm-license-text <startDir>
+    npm-license-text <startDir> <outputFile>
 
 The startDir is sent to npm-license-crawler as a `start` option.
 See the documentation of npm-license-crawler for more details.
+
+The script exits with an error if it cannot guess the license for
+one or more modules

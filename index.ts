@@ -3,15 +3,18 @@
 const crawler = require('npm-license-crawler')
 const thenify = require('thenify')
 import * as got from 'got'
+import * as fs from 'mz/fs'
 
 let failures = 0
 
-async function printNpmLicenseTxt(licenseJson: any): Promise<void> {
+async function writeNpmLicenseTxt(licenseJson: any, outputFile: string): Promise<void> {
+    let o = await fs.open(outputFile, 'w')
     for (let p of Object.keys(licenseJson)) {
         let info = licenseJson[p]
         let license = await fetchLicense(p, info.licenses, info.licenseUrl, info.repository)
-        console.log(`# ${p}\n\n${license}\n`)
+        await fs.write(o, `# ${p}\n\n${license}\n\n`)
     }
+    await fs.close(o)
 }
 
 const overrides = new Map<string, string>([
@@ -102,12 +105,12 @@ function cleanLicenses(licenseJson: any): void {
 }
 
 async function run(): Promise<void> {
-    if (process.argv.length !== 3) {
-        console.error('Usage: npm-license-text <inputDir>')
+    if (process.argv.length !== 4) {
+        console.error('Usage: npm-license-text <inputDir> <outputFile>')
         process.exit(1)
     }
 
-    const [, , inputDir] = process.argv
+    const [, , inputDir, outputFile] = process.argv
     console.error(`Generating licenses for npm packages under ${inputDir}`)
     const dumpLicenses = thenify(crawler.dumpLicenses)
 
@@ -116,7 +119,7 @@ async function run(): Promise<void> {
     })
 
     licenseJson = cleanLicenses(licenseJson)
-    await printNpmLicenseTxt(licenseJson)
+    await writeNpmLicenseTxt(licenseJson, outputFile)
 }
 
 run()
