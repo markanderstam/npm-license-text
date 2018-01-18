@@ -1,0 +1,13 @@
+{
+    "rules": {
+        "class-name": true,
+        "no-duplicate-variable": true,
+        "no-eval": true,
+        "no-internal-module": true,
+        "no-trailing-whitespace": true,
+        "no-unsafe-finally": true,
+        "eofline": true,
+        "no-floating-promises": false,
+        "variable-name": [true, "ban-keywords"]
+    }
+}
