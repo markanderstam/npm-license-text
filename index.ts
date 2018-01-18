@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const crawler = require('npm-license-crawler')
 const thenify = require('thenify')
 import * as got from 'got'
