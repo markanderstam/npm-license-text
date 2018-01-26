@@ -1,6 +1,6 @@
 {
   "name": "npm-license-text",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generate file with license text of all dependencies",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,11 @@
   },
   "author": "Mattias Holmlund <mattias.holmlund@netinsight.net>",
   "license": "ISC",
+  "repository" :
+    {
+      "type" : "git",
+      "url" : "https://github.com/netinsight/npm-license-text.git"
+  },
   "devDependencies": {
     "@types/got": "^7.1.6",
     "@types/mz": "0.0.32",

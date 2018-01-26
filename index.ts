@@ -21,6 +21,9 @@ const overrides = new Map<string, string>([
     ['json-schema@0.2.3', 'BSD-3-Clause'],
     ['jsonify@0.0.0', 'Public domain'],
     ['buffers@0.1.1', 'MIT'],
+    ['string-to-js@0.0.1', 'MIT'],
+    ['indexof@0.0.1', 'MIT'],
+    ['rgb@0.1.0', 'MIT'],
 ])
 
 async function fetchLicense(
